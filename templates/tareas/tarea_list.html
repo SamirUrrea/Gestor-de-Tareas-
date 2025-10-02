@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>Lista de Tareas</title></head>
+<body>
+  <h1>Tareas</h1>
+  <a href="{% url 'tareas:create' %}">Crear tarea</a>
+  <ul>
+    {% for tarea in tareas %}
+      <li>
+        <a href="{% url 'tareas:detail' tarea.pk %}">{{ tarea.titulo }}</a> -
+        Prioridad: {{ tarea.prioridad }} {% if not tarea.vigente %}(No vigente){% endif %}
+        <a href="{% url 'tareas:update' tarea.pk %}">[Editar]</a>
+        <a href="{% url 'tareas:delete' tarea.pk %}">[Eliminar]</a>
+      </li>
+    {% empty %}
+      <li>No hay tareas.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
+
+

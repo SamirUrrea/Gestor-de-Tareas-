@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><title>{{ tarea.titulo }}</title></head>
+<body>
+  <h1>{{ tarea.titulo }}</h1>
+  <p>{{ tarea.descripcion }}</p>
+  <p>Prioridad: {{ tarea.prioridad }}</p>
+  <p>Vigente: {{ tarea.vigente }}</p>
+  <p>Creada: {{ tarea.fecha_creacion }}</p>
+  {% if tarea.fecha_limite %}<p>Fecha límite: {{ tarea.fecha_limite }}</p>{% endif %}
+  <a href="{% url 'tareas:list' %}">Volver</a>
+</body>
+</html>
