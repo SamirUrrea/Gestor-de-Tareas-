@@ -6,13 +6,13 @@ python manage.py shell
 from tareas.models import Tarea from django.utils import timezone
 
 Crear
-Tarea.objects.create(titulo='Pagar factura', descripcion='Pagar factura luz', prioridad=2, vigente=True)
+Tarea.objects.create(titulo='Tarea 1', descripcion='Realizar tarea 1', prioridad=1, vigente=True)
 
 Listar
 Tarea.objects.all()
 
-Filtrar por prioridad alta (1 o 2)
-Tarea.objects.filter(prioridad__lte=2).order_by('prioridad')
+Filtrar por prioridad alta (1 a 4)
+Tarea.objects.filter(prioridad__lte=4).order_by('prioridad')
 
 Obtener una tarea, editar y guardar
 t = Tarea.objects.get(pk=1) t.vigente = False t.save()
